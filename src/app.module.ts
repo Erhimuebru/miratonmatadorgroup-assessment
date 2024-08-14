@@ -2,6 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { TransactionsModule } from './transactions/transactions.module';
+import { AccountsModule } from './accounts/accounts.module';
+import { AuthModule } from './auth/auth.module';
+
 
 @Module({
   imports: [
@@ -25,7 +29,10 @@ import { UsersModule } from './users/users.module';
         },
       }),
     }),
-    UsersModule
+    UsersModule,
+    TransactionsModule,
+    AccountsModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
