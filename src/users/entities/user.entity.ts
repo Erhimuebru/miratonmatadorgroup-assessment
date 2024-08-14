@@ -19,7 +19,6 @@ export class Users {
   phoneNumber: string;
 
   @Column()
-//   @Exclude()
   password: string;
 
   @Column({ nullable: true })

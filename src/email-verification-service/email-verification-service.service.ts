@@ -31,8 +31,7 @@ export class EmailVerificationService  {
     const  subject ='Account Verification'
     const text = `Click the following link to verify your account: ${confirmationLink}`;
     const html = `Click the following link to verify your account: <a href="${confirmationLink}">${confirmationLink}</a>`;
-
-    await this.sendEmail(email, text, html, subject);
+  await this.sendEmail(email, text, html, subject);
   }
 
 
@@ -40,7 +39,6 @@ export class EmailVerificationService  {
     const  subject ='Account Notification'
     const text = 'You have successfully logged in to your account.';
     const html = '<p>You have successfully logged in to your account.</p>';
-
     await this.sendEmail(email, text, html, subject);
   }
   

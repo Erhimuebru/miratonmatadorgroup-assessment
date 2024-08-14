@@ -35,13 +35,4 @@ export class Transaction {
   @JoinColumn({ name: 'recipient_account_id' })
   recipient: Account;
 
-  // New fields for recurring transactions
-  @Column({ type: 'enum', enum: ['daily', 'weekly', 'monthly'], nullable: true })
-  recurrence: 'daily' | 'weekly' | 'monthly';
-
-  @Column({ type: 'timestamp', nullable: true })
-  nextExecutionDate: Date;
-
-  @Column({ type: 'timestamp', nullable: true })
-  endDate?: Date;
 }

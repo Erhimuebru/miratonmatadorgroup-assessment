@@ -1,4 +1,4 @@
-import { IsString, IsEmail, IsNotEmpty, Validate, Length } from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty, Validate } from 'class-validator';
 import { PasswordComplexityValidator } from './password.validator';
 
 export class CreateDto {
@@ -8,9 +8,8 @@ export class CreateDto {
   @IsEmail()
   readonly email: string;
 
-  @IsNotEmpty()
-  @Length(11, 11, { message: 'Phone number must be exactly 11 digits long' })
-  phoneNumber: string;
+  @IsString()
+  readonly phoneNumber: string;
 
   @IsNotEmpty()
   @Validate(PasswordComplexityValidator)
