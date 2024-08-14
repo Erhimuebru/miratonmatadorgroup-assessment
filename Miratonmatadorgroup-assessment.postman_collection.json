@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"example@gmail.com\",\n    \"password\": \"#Password1\"\n}",
+					"raw": "{\n    \"email\": \"erhimubru87@gmail.com\",\n    \"password\": \"#Password1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"fullName\": \"erhimu ebru\",\n    \"email\": \"erhiwmuebru87@gmail.com\",\n  \"phoneNumber\": \"09018471745\",\n  \"password\": \"#Password1\",\n  \"confirmPassword\": \"#Password1\"\n\n}",
+					"raw": "{\n    \"fullName\": \"erhimu ebru\",\n    \"email\": \"erhimubru87@gmail.com\",\n  \"phoneNumber\": \"7068226823\",\n  \"password\": \"#Password1\",\n  \"confirmPassword\": \"#Password1\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,13 +83,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/accounts/0b6eea41-598d-4649-a65f-676be622aa6c",
+					"raw": "{{baseUrl}}/accounts/0b6eea41-598d-4649-a65f-676be622aa6d",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"accounts",
-						"0b6eea41-598d-4649-a65f-676be622aa6c"
+						"0b6eea41-598d-4649-a65f-676be622aa6d"
 					]
 				}
 			},

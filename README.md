@@ -37,6 +37,7 @@ Nest.js: nest.js framework for building APIs.
 PostgreSQL: Relational database.
 TypeORM: ORM for interacting with the database.
 JWT: JSON Web Tokens for authentication.
+Bcrypt: For hashing the password
 Nodemailer: For sending email notifications.
 
 # Getting Started
