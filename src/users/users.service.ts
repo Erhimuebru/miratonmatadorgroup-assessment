@@ -55,7 +55,7 @@ export class UsersService {
 
       // Send OTP email
       const otpMessage = `Your verification code is ${otp}. It is valid for 10 minutes.`;
-      await this.emailService.sendEmail(user.email, otpMessage);
+      await this.emailService.sendEmail(user.email, "Account Verification", otpMessage);
 
       return createdUser;
     } catch (error) {
@@ -106,7 +106,7 @@ export class UsersService {
     await this.userRepository.save(user);
   
     const otpMessage = `Your new verification code is ${newOtp}. It is valid for 10 minutes.`;
-    await this.emailService.sendEmail(user.email, otpMessage);
+    await this.emailService.sendEmail(user.email, "Account Verification", otpMessage);
   
     return 'A new OTP has been sent to your email.';
   }
