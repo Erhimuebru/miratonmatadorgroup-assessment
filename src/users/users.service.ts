@@ -44,7 +44,7 @@ export class UsersService {
       const otpExpirationTime = new Date();
       otpExpirationTime.setMinutes(otpExpirationTime.getMinutes() + 10);
 
-      // Create the user
+
       const user = this.userRepository.create({
         ...userData,
         otp,
@@ -158,37 +158,39 @@ export class UsersService {
   }
 
 
-
-  async register(createUserDto: CreateDto): Promise<{ token: string }> {
+  async register(createUserDto: CreateDto): Promise<{ message: string}> {
     if (!createUserDto.email) {
       throw new BadRequestException('Email is required');
     }
-  
+
     if (!createUserDto.password) {
       throw new BadRequestException('Password is required');
     }
-  
+
     if (!createUserDto.confirmPassword) {
       throw new BadRequestException('Confirm Password is required');
     }
-  
+
     if (createUserDto.password !== createUserDto.confirmPassword) {
       throw new BadRequestException('Password and Confirm Password do not match');
     }
-  
+
     if (!createUserDto.fullName) {
       throw new BadRequestException('Full Name is required');
     }
-  
+
     if (!createUserDto.phoneNumber) {
       throw new BadRequestException('Phone Number is required');
     }
 
     const user = await this.createUser(createUserDto);
     const token = this.generateJwtToken(user);
-  
-    return { token };
+
+    return {
+      message: 'User registered successfully',
+    };
   }
+
   
 
 async logine(email: string, password: string): Promise<{ token: string }> {
@@ -198,7 +200,6 @@ async logine(email: string, password: string): Promise<{ token: string }> {
   }
 
   const token = this.generateJwtToken(user);
-
   // Send login notification email
   await this.emailService.sendLoginNotificationEmail(user.email);
 

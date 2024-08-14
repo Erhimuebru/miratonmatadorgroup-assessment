@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { AuthModule } from './auth/auth.module';
+import { APP_PIPE } from '@nestjs/core';
 
 
 @Module({
@@ -35,6 +36,9 @@ import { AuthModule } from './auth/auth.module';
     AuthModule
   ],
   controllers: [],
-  providers: [],
+  providers: [  {
+    provide: APP_PIPE,
+    useClass: ValidationPipe ,
+  },],
 })
 export class AppModule {}

@@ -9,6 +9,7 @@ import { PassportModule } from '@nestjs/passport';
 import { Users } from 'src/users/entities/user.entity';
 import { UsersService } from 'src/users/users.service';
 import { EmailVerificationService } from 'src/email-verification-service/email-verification-service.service';
+import { PasswordComplexityValidator } from 'src/users/dto/password.validator';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { EmailVerificationService } from 'src/email-verification-service/email-v
     PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
   controllers: [AuthController],
-  providers: [UsersService, EmailVerificationService, JwtStrategy],
+  providers: [UsersService, EmailVerificationService, JwtStrategy, PasswordComplexityValidator],
 })
 export class AuthModule {}

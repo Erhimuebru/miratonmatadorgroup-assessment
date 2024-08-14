@@ -1,6 +1,5 @@
-// export class CreateUserDto {}
-// create-user.dto.ts
-import { IsString, IsEmail, IsOptional, IsBoolean } from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty, Validate, Length } from 'class-validator';
+import { PasswordComplexityValidator } from './password.validator';
 
 export class CreateDto {
   @IsString()
@@ -9,11 +8,13 @@ export class CreateDto {
   @IsEmail()
   readonly email: string;
 
-  @IsString()
-  readonly phoneNumber: string;
+  @IsNotEmpty()
+  @Length(11, 11, { message: 'Phone number must be exactly 11 digits long' })
+  phoneNumber: string;
 
-  @IsString()
-  readonly password: string;
+  @IsNotEmpty()
+  @Validate(PasswordComplexityValidator)
+  password: string;
 
   @IsString()
   readonly confirmPassword: string;

@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "ef3d7a66-2170-4bbc-a56d-4bb8126dede6",
+		"name": "Miratonmatadorgroup-assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24046026"
+	},
+	"item": [
+		{
+			"name": "Authenticate an existing user and return a JWT.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"example@gmail.com\",\n    \"password\": \"#Password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return the details of the currently authenticated user using JWT.",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Register a new user.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"erhimu ebru\",\n    \"email\": \"erhiwmuebru87@gmail.com\",\n  \"phoneNumber\": \"09018471745\",\n  \"password\": \"#Password1\",\n  \"confirmPassword\": \"#Password1\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new account for a user.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountType\":\"personal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/accounts/0b6eea41-598d-4649-a65f-676be622aa6c",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"0b6eea41-598d-4649-a65f-676be622aa6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get details of a specific account.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/accounts/40f03344-c461-4125-9619-f5f068a13bb8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"accounts",
+						"40f03344-c461-4125-9619-f5f068a13bb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a transaction (debit/credit) for an account.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"amount\":10000,\n \"description\": \"payment from ben\",\n \"type\": \"credit\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/transactions/40f03344-c461-4125-9619-f5f068a13bb8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transactions",
+						"40f03344-c461-4125-9619-f5f068a13bb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all transactions for a specific user.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/transactions/40f03344-c461-4125-9619-f5f068a13bb8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transactions",
+						"40f03344-c461-4125-9619-f5f068a13bb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer money from one account to another.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"amount\":1000,\n\"toAccountId\":\"40f03344-c461-4125-9619-f5f068a13bb8\",\n\"fromAccountId\": \"cf40ed2e-0d70-45d9-b8b0-242a35658c64\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/transactions/transfer",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transactions",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
